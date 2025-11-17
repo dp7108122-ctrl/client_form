@@ -1,0 +1,49 @@
+<div class="wrapper">
+
+  <mat-card class="form-card" @fadeIn>
+    <h2>Client Registration Form</h2>
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="clientForm.get('email')?.touched && clientForm.get('email')?.invalid">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contact Number</mat-label>
+        <input matInput maxlength="10" formControlName="contact">
+        <mat-error *ngIf="clientForm.get('contact')?.touched && clientForm.get('contact')?.invalid">
+          Enter a 10-digit contact number
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Services</mat-label>
+        <mat-select formControlName="services" multiple>
+          <mat-option *ngFor="let s of serviceList" [value]="s">{{ s }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="clientForm.get('services')?.touched && clientForm.get('services')?.invalid">
+          Choose at least one service
+        </mat-error>
+      </mat-form-field>
+
+      <div class="btn-group">
+        <button mat-raised-button color="primary" [disabled]="clientForm.invalid">Submit</button>
+        <button mat-raised-button color="warn" type="button" (click)="onClear()">Clear</button>
+      </div>
+
+    </form>
+  </mat-card>
+
+  <mat-card class="output-card" *ngIf="submittedData" @fadeIn>
+    <h3>Submitted Details</h3>
+    <p><strong>Email:</strong> {{ submittedData.email }}</p>
+    <p><strong>Contact:</strong> {{ submittedData.contact }}</p>
+    <p><strong>Services:</strong> {{ submittedData.services.join(', ') }}</p>
+  </mat-card>
+
+</div>

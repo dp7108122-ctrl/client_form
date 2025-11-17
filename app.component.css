@@ -1,0 +1,45 @@
+.wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-card,
+.output-card {
+  padding: 25px;
+  border-radius: 16px;
+  transition: 0.3s ease;
+}
+
+.form-card:hover,
+.output-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+h2, h3 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 20px;
+  border-radius: 8px !important;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
