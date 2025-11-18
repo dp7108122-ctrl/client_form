@@ -1,89 +1,163 @@
-.form-container {
-  width: 90%;
-  max-width: 550px;
-  margin: 30px auto;
-  background: #ffffff15;
-  backdrop-filter: blur(10px);
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px #0002;
-  animation: fadeIn 0.5s ease;
+/* --- Global Resets and Base Styles --- */
+:root {
+    --primary-color: #007bff; /* Deep Blue for buttons/focus */
+    --secondary-color: #f0f4f8; /* Light background for form sections */
+    --border-color: #ddd;
+    --focus-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus ring */
+    --transition-speed: 0.3s;
 }
 
-.title {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background-color: #ffffff; /* White background */
+    color: #333;
 }
 
-.client-form .form-group {
-  margin-bottom: 15px;
+h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
-.form-group label {
-  font-weight: 600;
+p {
+    color: #666;
+    margin-bottom: 30px;
 }
 
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: 0.3s;
+/* --- Section Headings (Contact Details, Project Scope) --- */
+h3 {
+    font-size: 1.3em;
+    font-weight: 500;
+    border-bottom: 2px solid var(--primary-color); /* Highlighted separator */
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    color: #222;
+    /* Animation: Subtle fade-in for section headings */
+    animation: fadeIn 0.8s ease-out; 
 }
 
-input:focus, select:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px #4a90e2;
+/* --- Labels and Inputs --- */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #444;
 }
 
-.error {
-  color: red;
-  font-size: 12px;
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+    width: 100%;
+    padding: 14px 15px; /* Generous padding for height */
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle depth */
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-.btn-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+/* Animation: Input Focus */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: var(--focus-shadow);
+    transform: translateY(-1px); /* Subtle lift effect */
 }
 
-.submit-btn, .clear-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  border: none;
-  transition: 0.3s;
+/* --- Phone Input Specifics --- */
+.phone-group {
+    display: flex;
+    margin-bottom: 20px;
 }
 
-.submit-btn {
-  background: #4a90e2;
-  color: white;
+.phone-code {
+    padding: 14px 15px;
+    border: 1px solid var(--border-color);
+    border-right: none;
+    background-color: var(--secondary-color); /* Light grey code background */
+    border-radius: 8px 0 0 8px;
+    font-weight: 600;
+    color: #555;
+    align-self: stretch; /* Ensures height matches input */
+    line-height: 1.5; /* Matches input line height */
 }
 
-.submit-btn:hover {
-  background: #367ac9;
+.phone-group input[type="tel"] {
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 0;
+    /* Ensure phone input takes the remaining width */
+    flex-grow: 1; 
 }
 
-.clear-btn {
-  background: #ff4b4b;
-  color: white;
+/* --- Project Brief Textarea --- */
+textarea {
+    min-height: 120px; /* Taller textarea for brief */
+    resize: vertical;
 }
 
-.clear-btn:hover {
-  background: #d93636;
+/* --- Submit Button --- */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+    transition: background-color var(--transition-speed), transform 0.2s ease;
 }
 
-.output-card {
-  margin-top: 25px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px #0003;
+/* Animation: Button Hover/Active */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Lift button on hover */
+    box-shadow: 0 6px 8px rgba(0, 123, 255, 0.4);
 }
 
-.output-card h3 {
-  margin-bottom: 10px;
+button[type="submit"]:active {
+    transform: translateY(0); /* Press down effect */
 }
+
+/* --- Multi-Select Instruction Note --- */
+small {
+    display: block;
+    color: #888;
+    font-size: 0.85em;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply fade-in to all input groups */
+.phone-group, 
+input:not([type="checkbox"]):not([type="radio"]), 
+select, 
+textarea, 
+.toggle-container {
+    animation: fadeIn 0.5s ease-out backwards;
+    /* Delay each element slightly for a staggered effect */
+    animation-delay: calc(var(--delay, 0) * 0.1s); 
+}
+
+/* Use a custom property for staggering the animations */
+input:nth-child(1) { --delay: 1; }
+input:nth-child(2) { --delay: 2; }
+.phone-group { --delay: 3; }
+select { --delay: 4; }
+/* ... and so on for all major form elements */
