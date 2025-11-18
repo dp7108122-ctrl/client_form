@@ -1,45 +1,89 @@
-.wrapper {
-  max-width: 500px;
-  margin: 40px auto;
-  font-family: 'Poppins', sans-serif;
-}
-
-.form-card,
-.output-card {
+.form-container {
+  width: 90%;
+  max-width: 550px;
+  margin: 30px auto;
+  background: #ffffff15;
+  backdrop-filter: blur(10px);
   padding: 25px;
   border-radius: 16px;
-  transition: 0.3s ease;
+  box-shadow: 0 4px 12px #0002;
+  animation: fadeIn 0.5s ease;
 }
 
-.form-card:hover,
-.output-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
-}
-
-h2, h3 {
+.title {
+  text-align: center;
+  font-size: 24px;
   margin-bottom: 20px;
-  font-weight: 600;
-  color: #333;
 }
 
-.full-width {
+.client-form .form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+input, select {
   width: 100%;
-  margin-bottom: 18px;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px #4a90e2;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }
 
 .btn-group {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
-button {
-  padding: 8px 20px;
-  border-radius: 8px !important;
+.submit-btn, .clear-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
   font-weight: 600;
-  transition: transform 0.2s ease;
+  border: none;
+  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
+.submit-btn {
+  background: #4a90e2;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #367ac9;
+}
+
+.clear-btn {
+  background: #ff4b4b;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #d93636;
+}
+
+.output-card {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px #0003;
+}
+
+.output-card h3 {
+  margin-bottom: 10px;
 }
